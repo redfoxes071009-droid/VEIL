@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_data.gd" id="1_data"]
+[ext_resource type="Texture2D" path="res://assets/characters/j/illust.jpg" id="2_ill"]
+[ext_resource type="Texture2D" path="res://assets/characters/j/portrait.jpg" id="3_por"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"j"
+display_name = "J"
+name_en = "J"
+epithet = "어둠속의 그림자"
+code = "CODE-J2-7234-257E"
+element = 0
+role = 1
+range_type = 1
+height_cm = 178
+weapon_name = "소음 권총"
+weapon_desc = "그림자 속에서 쓰는 소음 권총. 은신 상태에서 사거리가 늘어납니다."
+profile = "J는 그림자를 활용해 은신하며 적을 암살하는 인파이터형 하이퍼캐리 원거리 딜러입니다.\nHP를 소모해 폭발적인 화력을 발휘하고, 은신 상태에서 흡혈과 강력한 추가 피해를 가합니다.\n그림자는 그녀를 늘 따라다니며, 그림자를 다양한 형태로 활용해 예측 불가한 전투를 발휘합니다."
+trait_desc = "J는 그림자 장막 진입 시 은신하여 HP를 소모·회복하고, 은신 중 타겟팅되지 않습니다. 기본 스킬 '생명의 대가'는 HP를 소모해 관통 피해를 주거나 은신으로 전환해 추가 피해와 치명타 보너스를 얻습니다. 궁극기 '어둠속의 그림자'는 그림자 가시로 방어 무시 피해와 속박을 주고, 발동 후 장막에 진입합니다."
+ref_level = 90
+hp = 1892
+atk = 5746
+def = 165
+crit_rate = 45
+crit_dmg = 176.0
+effect_hit = 3107
+move_speed = 72
+attack_range = 110
+attack_interval = 0.8
+basic_mult = 0.6
+skill_name = "생명의 대가"
+skill_desc = "발동 시 현재 HP의 15% 소모.\n짧은 터치 - J가 근처의 적을 관통하며 가시 피해를 줍니다.\n홀드 - J가 그림자 장막 속으로 이동 후 권총으로 은신 상태로 전환합니다 (지속 시간 20초). 은신 상태에서 기본 공격 적중 시, 공격력의 20% 추가 피해를 입힙니다. 스킬 버튼을 짧게 눌러 조기 종료할 수 있습니다.\n은신 상태: 공격 사거리 15m 증가, 치명타 확률 20% 상승."
+skill_cooldown = 15
+ult_name = "어둠속의 그림자"
+ult_desc = "J가 바닥에서 그림자 가시를 소환해 적의 방어력을 무시하고 관통 피해를 입힙니다. 이때, 중심부에 위치한 적은 5초간 속박 상태를 유지합니다.\n발동 후 그림자 장막에 진입합니다."
+ult_cooldown = 7
+color_main = Color(0.6157, 0.4824, 1.0000, 1)
+color_sub = Color(0.1020, 0.0863, 0.1333, 1)
+illust = ExtResource("2_ill")
+portrait = ExtResource("3_por")

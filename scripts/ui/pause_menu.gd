@@ -73,7 +73,7 @@ func _build() -> void:
 	col.add_child(_menu)
 	_add_item("MENU_RESUME", resume)
 	_add_item("MENU_SETTINGS", _on_settings)
-	_add_item("MENU_TO_TITLE", _on_to_title)
+	_add_item("MENU_TO_LOBBY", _on_to_title)
 
 
 func _add_item(key: String, callback: Callable) -> void:
@@ -96,4 +96,4 @@ func _on_settings_closed() -> void:
 func _on_to_title() -> void:
 	_root.hide()
 	GameManager.set_paused(false)
-	SceneManager.change_scene(SceneManager.TITLE_SCENE)
+	SceneManager.change_scene(SceneManager.LOBBY_SCENE)

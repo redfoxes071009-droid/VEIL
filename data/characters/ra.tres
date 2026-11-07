@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_data.gd" id="1_data"]
+[ext_resource type="Texture2D" path="res://assets/characters/ra/illust.jpg" id="2_ill"]
+[ext_resource type="Texture2D" path="res://assets/characters/ra/portrait.jpg" id="3_por"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"ra"
+display_name = "라"
+name_en = "Ra"
+epithet = "떠오르는 태양"
+code = "CODE-R1-4284-237D"
+element = 2
+role = 0
+range_type = 0
+height_cm = 187
+weapon_name = "태양 대검"
+weapon_desc = "두 갈래로 찢어 쌍창으로 전환할 수 있는 대검. 태양 코어의 광휘를 머금고 있습니다."
+profile = "라는 태양의 힘을 직접적으로 끌어다 쓸 수 있는 능력을 가지고 있으며,\n태양코어는 라의 심장에 깊이 박혀 있습니다.\n이 코어를 통해 라는 무한한 태양 에너지를 공급받으며, 그 에너지를 통해 강력한 힘을 발휘합니다."
+trait_desc = "라는 전투 중 피해를 받을 때마다 태양 코어를 충전하며, 충전이 가득 차면 다음 공격이 강화되어 추가 피해와 보호막을 얻습니다. 기본 스킬 '불굴의 태양'은 대검을 쌍창으로 전환해 광휘 창을 발사하고, 전환 상태에서는 공격 속도와 기동력이 상승하지만 방어력이 감소합니다. 궁극기 '심판의 날'은 아군 전체를 회복시키고 자신은 부활하며, 일정 시간 공격력과 체력 회복 효과를 부여합니다."
+ref_level = 60
+hp = 3892
+atk = 4243
+def = 5263
+crit_rate = 25
+crit_dmg = 74.6
+effect_hit = 2304
+move_speed = 60
+attack_range = 26
+attack_interval = 1.1
+basic_mult = 0.8
+skill_name = "불굴의 태양"
+skill_desc = "라가 대검을 두 갈래로 찢어 쌍창 상태로 전환합니다. 전환 시 즉시 전방을 가르는 광휘 창을 두 번 발사할 수 있으며, 적중한 적에게 피해와 짧은 실명 효과를 줍니다. 전환 상태에서는 공격 속도와 기동력이 상승하지만 방어력이 일부 감소합니다.\n전환 시 광휘 창: 2회 발사, 공격력의 225% 피해 + 3초 실명\n상태 변화: 공격 속도 +20% · 이동 속도 +15% · 방어력 -15%\n지속 시간: 12초"
+skill_cooldown = 20
+ult_name = "심판의 날"
+ult_desc = "라가 태양 코어를 해방해 전장을 광휘로 물들입니다. 발동 시 짧은 시간 동안 아군 전체의 체력을 회복시키고, 자신은 쓰러져 있더라도 즉시 부활합니다. 발동 후 일정 시간 동안 공격력이 상승하며, 광휘의 불꽃이 몸을 감싸 매초 체력을 회복합니다.\n아군 회복량: 아군 HP 최대치의 30.6%\n부활 및 회복량: 최대 체력의 50%로 부활 / 체력의 15% 회복\n버프 효과: 공격력 +25% · 초당 체력 회복: 최대 체력 × 5% (지속 8초)"
+ult_cooldown = 30
+color_main = Color(1.0000, 0.7843, 0.2392, 1)
+color_sub = Color(0.1647, 0.1412, 0.0863, 1)
+illust = ExtResource("2_ill")
+portrait = ExtResource("3_por")

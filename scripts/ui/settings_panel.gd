@@ -8,6 +8,7 @@ var _volume: HSlider
 var _volume_value: Label
 var _mode: OptionButton
 var _resolution: OptionButton
+var _ally_auto: CheckButton
 
 
 func _ready() -> void:
@@ -73,6 +74,9 @@ func _build() -> void:
 		_resolution.add_item("%d×%d" % [r.x, r.y])
 	col.add_child(_row("SETTINGS_RESOLUTION", _resolution))
 
+	_ally_auto = CheckButton.new()
+	col.add_child(_row("SETTINGS_ALLY_AUTO", _ally_auto))
+
 	var footer := HBoxContainer.new()
 	footer.add_child(UiStyle.label("SETTINGS_HINT", 14, UiStyle.TEXT_MUTED))
 	var spacer := Control.new()
@@ -87,6 +91,9 @@ func _build() -> void:
 	_volume.value_changed.connect(_on_volume_changed)
 	_mode.item_selected.connect(_on_mode_selected)
 	_resolution.item_selected.connect(_on_resolution_selected)
+	_ally_auto.toggled.connect(func(on):
+		SettingsManager.set_ally_auto_skills(on)
+		_commit())
 
 
 func _row(label_key: String, control: Control) -> HBoxContainer:
@@ -104,6 +111,7 @@ func _load_values() -> void:
 	_mode.select(_mode.get_item_index(SettingsManager.window_mode))
 	_resolution.select(SettingsManager.resolution_index)
 	_resolution.disabled = SettingsManager.window_mode == SettingsManager.WindowMode.FULLSCREEN
+	_ally_auto.set_pressed_no_signal(SettingsManager.ally_auto_skills)
 
 
 func _on_volume_changed(value: float) -> void:

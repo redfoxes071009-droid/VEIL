@@ -4,7 +4,20 @@ extends CanvasLayer
 signal scene_change_finished(path: String)
 
 const TITLE_SCENE := "res://scenes/ui/title_screen.tscn"
-const TEST_MAP_SCENE := "res://scenes/maps/test_map.tscn"
+const LOBBY_SCENE := "res://scenes/ui/lobby.tscn"
+const BATTLE_SCENE := "res://scenes/maps/battle.tscn"
+const STORY_SCENE := "res://scenes/ui/story.tscn"
+const CHARACTER_SCENE := "res://scenes/ui/character.tscn"
+const GACHA_SCENE := "res://scenes/ui/gacha.tscn"
+const SHOP_SCENE := "res://scenes/ui/shop.tscn"
+const BATTLEPASS_SCENE := "res://scenes/ui/battlepass.tscn"
+const DISPATCH_SCENE := "res://scenes/ui/dispatch.tscn"
+const MAIL_SCENE := "res://scenes/ui/mail.tscn"
+const NOTICE_SCENE := "res://scenes/ui/notice.tscn"
+const EVENT_SCENE := "res://scenes/ui/event.tscn"
+
+## 출격할 스토리 스테이지 (스토리 화면 → 전투 씬)
+var battle_stage := "1-1"
 
 var _fade: ColorRect
 var _busy := false

@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_data.gd" id="1_data"]
+[ext_resource type="Texture2D" path="res://assets/characters/phase/illust.jpg" id="2_ill"]
+[ext_resource type="Texture2D" path="res://assets/characters/phase/portrait.jpg" id="3_por"]
+
+[resource]
+script = ExtResource("1_data")
+id = &"phase"
+display_name = "페이즈"
+name_en = "Phase"
+epithet = "질주하는 네온"
+code = "CODE-P3-5160-219A"
+element = 1
+role = 2
+range_type = 0
+height_cm = 165
+weapon_name = "차원 검"
+weapon_desc = "허공을 베어 포털을 여는 검. 그녀의 검으로 공간을 찢을 수 있습니다."
+profile = "페이즈는 차원 이동의 힘을 해킹으로 조작해 포털을 열 수 있는 능력을 가지고 있으며,\n그녀의 검으로 공간을 찢을 수 있습니다.\n이 능력을 통해 페이즈는 재빠르게 움직이며 전투를 발휘합니다."
+trait_desc = "페이즈는 차원 칼날로 포털을 열어 적을 감전시키고 [광속 질주]로 스킬을 다시 사용합니다. 궁극기 '차원 질주'는 포털 게이지를 소모해 아군 전체의 이동 속도와 공격 속도를 높이고 주변 적의 내성을 낮춥니다."
+ref_level = 70
+hp = 2400
+atk = 3600
+def = 900
+crit_rate = 30
+crit_dmg = 150.0
+effect_hit = 1800
+move_speed = 85
+attack_range = 28
+attack_interval = 0.7
+basic_mult = 0.7
+skill_name = "차원 개방"
+skill_desc = "페이즈가 전방에 차원 칼날을 휘둘러 허공에 포털을 개방하며 감전 전도 피해를 줍니다.\n발동 시 [광속 질주] 상태가 활성화됩니다. [광속 질주] 상태가 활성화되어 있을 시, 페이즈의 이동 속도가 증가하고 스킬 쿨다운이 초기화됩니다.\n적중 시 적 이동 속도 -20%\n피해량: 공격 속도 수치의 35%"
+skill_cooldown = 6
+ult_name = "차원 질주"
+ult_desc = "발동 시 페이즈가 포털 게이지를 초당 3pt씩 소모하여 [질주] 상태에 진입합니다. [질주] 상태에서 페이즈는 아군에게 이동 속도 보너스 20%, 공격 속도 보너스 15%, 내성 감소 20%의 버프를 획득합니다."
+ult_cooldown = 3
+color_main = Color(0.2471, 0.8784, 0.7843, 1)
+color_sub = Color(0.7843, 1.0000, 0.2314, 1)
+illust = ExtResource("2_ill")
+portrait = ExtResource("3_por")

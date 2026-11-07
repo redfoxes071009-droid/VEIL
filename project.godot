@@ -7,7 +7,7 @@ config_version=5
 
 config/name="VEIL"
 config/description="VEIL (베일) — 2D SF 디스토피아 싱글플레이 RPG"
-config/version="0.1.0-phase2"
+config/version="0.2.0-phase3"
 run/main_scene="res://scenes/main/boot.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 EventBus="*res://scripts/core/event_bus.gd"
 InputConfig="*res://scripts/core/input_config.gd"
 SettingsManager="*res://scripts/core/settings_manager.gd"
+SaveManager="*res://scripts/systems/save_manager.gd"
 GameManager="*res://scripts/core/game_manager.gd"
 SceneManager="*res://scripts/core/scene_manager.gd"
 

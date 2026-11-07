@@ -5,7 +5,6 @@ MENU_NEW_GAME,새 게임,New Game
 MENU_SETTINGS,설정,Settings
 MENU_QUIT,게임 종료,Quit Game
 MENU_RESUME,계속하기,Resume
-MENU_TO_TITLE,타이틀로,Return to Title
 PAUSE_TITLE,일시정지,Paused
 SETTINGS_TITLE,설정,Settings
 SETTINGS_MASTER_VOLUME,전체 음량,Master Volume
@@ -15,7 +14,190 @@ SETTINGS_FULLSCREEN,전체 화면,Fullscreen
 SETTINGS_RESOLUTION,해상도,Resolution
 SETTINGS_HINT,Esc 뒤로  ·  설정은 자동 저장,Esc to go back  ·  Settings save automatically
 SETTINGS_CLOSE,닫기,Close
-VERSION_LABEL,PROTOTYPE 0.1  ·  임시 UI,PROTOTYPE 0.1  ·  Placeholder UI
-TEST_MAP_TITLE,테스트 맵 (임시),Test Map (Placeholder)
-TEST_MAP_BODY,Phase 3에서 J·라·적이 이곳에 구현됩니다.,"J, Ra and enemies will be implemented here in Phase 3."
-TEST_MAP_HINT,Esc: 일시정지,Esc: Pause
+VERSION_LABEL,PROTOTYPE 0.2  ·  임시 UI,PROTOTYPE 0.2  ·  Placeholder UI
+BP_HINT,전투에서 승리할 때마다 패스 경험치 +60. 100마다 1단계.,+60 pass XP per victory. 1 tier per 100.
+BP_LOCKED,잠김,Locked
+BP_STATUS,시즌 패스  %d / %d 단계   ·   경험치 %d,Season Pass  Tier %d / %d   ·   XP %d
+BP_TIER,%d 단계,Tier %d
+CHAR_BREAK,돌파,Breakthrough
+CHAR_DETAIL,상세 정보,Details
+CHAR_ELEMENT,속성,Element
+CHAR_LEVEL,레벨,Level
+CHAR_MOVE,이동 속도 / 사거리,Move / Range
+CHAR_POWER,전투력: %s,Power: %s
+CHAR_RANGE,전투 거리,Range
+CHAR_ROLE,직군,Role
+CHAR_SET_LOBBY,로비 캐릭터로 설정,Set as Lobby Character
+CHAR_TAB_GROW,육성,Level Up
+CHAR_TAB_INFO,정보,Info
+CHAR_TAB_PROFILE,프로파일,Profile
+CHAR_TAB_SHARD,조각,Shards
+CHAR_TAB_SKILL,스킬,Skills
+CHAR_TAB_WEAPON,무기,Weapon
+CHAR_TRAIT,특성,Traits
+CLAIM,받기,Claim
+CLAIMED,받음,Claimed
+COMMUNITY_OFFLINE,VEIL은 서버 없이 실행되는 싱글플레이 게임이라 게임 안 커뮤니티 기능이 없습니다.,"VEIL is an offline single-player game, so there is no in-game community."
+CUR_CREDIT,크레딧,Credits
+CUR_CRYSTAL,크리스탈,Crystals
+CUR_ENERGY,에너지,Energy
+CUR_SHARD,조각,Shards
+DISPATCH_BUSY,이미 다른 임무에 파견 중인 캐릭터입니다.,That character is already dispatched.
+DISPATCH_COLLECT,보상 받기,Collect
+DISPATCH_DATA,데이터 회수,Data Recovery
+DISPATCH_HINT,파견 중에도 전투에는 참여할 수 있습니다. 시간은 게임을 꺼도 흐릅니다.,Dispatched characters can still fight. Time passes even while the game is closed.
+DISPATCH_INFILTRATE,BITE 시설 잠입,Infiltrate BITE Facility
+DISPATCH_RUNNING,진행 중입니다.,In progress.
+DISPATCH_SCOUT,외곽 정찰,Perimeter Scout
+DISPATCH_START,파견,Dispatch
+DONE,완료,Done
+ELEMENT_CONDUCT,전도,Conduct
+ELEMENT_RADIANCE,광휘,Radiance
+ELEMENT_VOID,공허,Void
+ENEMY_BRUTE,BITE 실험체,BITE Subject
+ENEMY_GUNNER,BITE 사수,BITE Gunner
+ENEMY_MUTANT,변이체,Mutant
+ERR_CREDIT,크레딧이 부족합니다.,Not enough credits.
+ERR_CRYSTAL,크리스탈이 부족합니다. 우편함·상점·배틀패스에서 얻을 수 있습니다.,"Not enough crystals. Get them from mail, shop or the pass."
+ERR_CURRENCY,재화가 부족합니다.,Not enough currency.
+ERR_ENERGY,에너지가 부족합니다.,Not enough energy.
+EVENT_BODY,새 스토리와 함께 스테이지 픽업 모집이 열렸습니다. 기간 동안 ★5 조각 획득 시 50% 확률로 스테이지 조각을 얻습니다.,A new story and Stage pickup recruitment are live. ★5 shards have a 50% chance to be Stage.
+EVENT_TAG,04.13 Update,04.13 Update
+EVENT_TITLE,스테이지 신규 스토리 오픈,New Story: Stage
+GACHA_BANNER_TAG,신규 ★5 확률 증가,Rate Up ★5
+GACHA_BANNER_TITLE,무대 위의 악마 · 스테이지,Devil on Stage · Stage
+GACHA_NO_PAYMENT,실제 결제는 없습니다. 크리스탈은 게임 안에서만 얻습니다.,No real-money payments. Crystals are earned in game only.
+GACHA_ONE,1회 모집  (크리스탈 %d),Recruit ×1  (%d Crystals)
+GACHA_PITY,★5 보장까지 %d / %d,★5 guarantee %d / %d
+GACHA_RATES,"★5 캐릭터 조각 ×10: 6% (그중 50% 스테이지)  ·  ★4 캐릭터 조각 ×2: 24%  ·  ★3 크레딧 ×5,000: 70%
+50회 안에 ★5 1회 보장. 모든 캐릭터는 처음부터 보유하며, 조각은 돌파에 씁니다.","★5 shards ×10: 6% (50% Stage) · ★4 shards ×2: 24% · ★3 5,000 credits: 70%
+★5 guaranteed within 50. All characters are owned from the start; shards are for breakthrough."
+GACHA_TEN,10회 모집  (크리스탈 %d),Recruit ×10  (%d Crystals)
+GROW_COST,다음 레벨 비용: 크레딧 %s,Next level: %s credits
+GROW_LEVEL_UP,레벨업 ×%d,Level Up ×%d
+GROW_MAX,최대 레벨입니다.,Max level.
+GROW_NEED_BREAK,레벨 상한입니다. 조각 탭에서 돌파하세요.,Level cap reached. Break through in the Shards tab.
+HUD_COMBO,콤보,Combo
+HUD_CONTAM,오염도,Contam.
+HUD_DODGE,회피,Dodge
+HUD_INTERACT,F  단말 조사,F  Investigate
+HUD_PORTAL,포털,Portal
+HUD_REQUEST,다크웹 의뢰,Dark Web Request
+HUD_SUN_CORE,태양 코어,Sun Core
+LOBBY_BATTLEPASS,배틀패스,Battle Pass
+LOBBY_BATTLEPASS_SUB,전투로 단계 보상,Tier rewards from battles
+LOBBY_CHARACTER,캐릭터,Characters
+LOBBY_CHARACTER_SUB,정보 · 육성 · 돌파,Info · Level · Break
+LOBBY_COMMUNITY,커뮤니티,Community
+LOBBY_DISPATCH,파견임무,Dispatch
+LOBBY_DISPATCH_SUB,시간이 지나면 보상,Rewards over time
+LOBBY_EVENT,이벤트,Event
+LOBBY_EVENT_SUB,스테이지 신규 스토리 오픈,New Story: Stage
+LOBBY_GACHA,모집,Recruit
+LOBBY_GACHA_SUB,신규 ★5 확률 증가 · 스테이지,Rate Up ★5 · Stage
+LOBBY_MAIL,우편,Mail
+LOBBY_NEWS,04.13 Update,04.13 Update
+LOBBY_NEWS_SUB,스테이지 신규 스토리 오픈,New Story: Stage
+LOBBY_NOTICE,공지,Notices
+LOBBY_SHOP,상점,Shop
+LOBBY_SHOP_SUB,크레딧 · 에너지 · 조각,Credits · Energy · Shards
+LOBBY_STORY,스토리,Story
+LOBBY_STORY_SUB,메인 1-1  ·  붕괴 구역 침투,Main 1-1  ·  Into the Ruins
+LOBBY_VERSION,VEIL PROTOTYPE 0.2  ·  임시 UI · 일러스트는 사용자 제공 PDF,VEIL PROTOTYPE 0.2  ·  Placeholder UI · Art from user PDF
+MAIL_PROTO,프로토타입 테스트 보상,Prototype Test Reward
+MAIL_PROTO_BODY,테스트에 참여해 주셔서 감사합니다.,Thank you for testing.
+MAIL_WELCOME,VEIL에 오신 것을 환영합니다,Welcome to VEIL
+MAIL_WELCOME_BODY,모집에 쓸 수 있는 크리스탈을 보내드립니다.,Here are some crystals for recruitment.
+MENU_CONTINUE,이어하기,Continue
+MENU_TO_LOBBY,로비로,Return to Lobby
+MSG_LEADER_DOWN,J가 쓰러졌습니다.,J has fallen.
+MSG_TERMINAL,[단말 기록] 큐브 반출 목록 #A-17 … 일부 손상. 'BITE 수송대가 3구역으로 이동' — 출구 잠금이 해제되었습니다.,[Terminal] Cube export list #A-17 … partially corrupted. 'BITE convoy moving to Sector 3' — Exit unlocked.
+NEW_GAME_CONFIRM,저장된 진행을 지우고 새로 시작할까요?,Delete your saved progress and start over?
+NOTICE_1_BODY,이 빌드는 전투·로비 구조 확인용 프로토타입입니다. 그래픽 일부와 모든 사운드는 임시입니다.,This build is a prototype for combat and lobby structure. Some graphics and all audio are placeholders.
+NOTICE_1_TITLE,[안내] 프로토타입 0.2,[Info] Prototype 0.2
+NOTICE_2_BODY,"VEIL은 인터넷 연결 없이 플레이할 수 있고, 진행은 이 PC에만 저장됩니다.",VEIL plays fully offline; progress is saved on this PC only.
+NOTICE_2_TITLE,[안내] 오프라인 저장,[Info] Offline Saves
+OBJ_EXIT,출구로 이동,Reach the exit
+OBJ_TERMINAL,단말을 조사하세요,Investigate the terminal
+PROFILE_NAME,이름,Name
+PROFILE_RANK,등급,Rank
+PROFILE_TALL,키(cm),Height (cm)
+RANGE_MELEE,근접 전투,Melee
+RANGE_RANGED,원거리 전투,Ranged
+RESULT_BP_XP,패스 경험치,Pass XP
+RESULT_FIRST_CLEAR,첫 클리어 보상: 크리스탈 +160,First clear: +160 Crystals
+RESULT_LOSE,작전 실패,Mission Failed
+RESULT_LOSE_HINT,J가 쓰러지면 작전이 실패합니다. 라의 심판의 날로 아군을 회복하세요.,The mission fails if J falls. Use Ra's Judgement Day to heal.
+RESULT_PLAYER_EXP,플레이어 경험치,Player EXP
+RESULT_RETRY,다시 도전,Retry
+RESULT_TO_LOBBY,로비로,Lobby
+RESULT_WIN,작전 성공,Mission Complete
+ROLE_DEALER,딜러,Dealer
+ROLE_SUPPORT,서포터,Support
+ROLE_TANK,탱커,Tank
+SAVE_LOAD_FAILED,저장 파일을 불러오지 못했습니다.,Could not load the save file.
+SETTINGS_ALLY_AUTO,동료 스킬 자동 사용,Auto-use ally skills
+SHARD_BREAK,돌파,Break Through
+SHARD_HINT,조각은 모집·상점·배틀패스·파견임무에서 얻습니다. 돌파하면 레벨 상한이 10 오르고 전투력이 5% 증가합니다.,"Shards come from recruit, shop, pass and dispatch. Each breakthrough raises the level cap by 10."
+SHARD_MAX,최대 돌파 상태입니다.,Fully broken through.
+SHARD_NEED,보유 조각 %d / 필요 %d   ·   돌파 후 레벨 상한 %d,Shards %d / %d   ·   New level cap %d
+SHARD_NEED_LEVEL,현재 레벨 상한까지 올려야 돌파할 수 있습니다.,Reach the current level cap first.
+SHARD_NOT_ENOUGH,조각이 부족합니다.,Not enough shards.
+SHOP_BUY,구매,Buy
+SHOP_CREDIT,크레딧 꾸러미,Credit Pack
+SHOP_DAILY,일일 무료 보급,Daily Free Supply
+SHOP_ENERGY,에너지 충전,Energy Refill
+SHOP_FREE,무료,Free
+SHOP_PICK_LABEL,선택 조각 대상:,Shard target:
+SHOP_PICK_SHARD,선택 캐릭터 조각,Chosen character shards
+SHOP_PRICE,가격,Price
+SHOP_SHARDS,선택 조각 꾸러미,Chosen Shard Pack
+SHOP_SOLD_OUT,오늘 받음,Claimed today
+SKILL_BASIC,일반 스킬,Skill
+SKILL_COOLDOWN,쿨타임: %.0f초,Cooldown: %.0fs
+SKILL_ULT,궁극기,Ultimate
+SKILL_ULT_GAUGE,오염도 100% 필요,Needs 100% Contamination
+STATUS_BLIND,실명,Blind
+STATUS_CONDUCT,전도+,Conduct+
+STATUS_HASTE,질주 버프,Haste
+STATUS_JUDGEMENT,심판,Judgement
+STATUS_LIGHTSPEED,광속 질주,Lightspeed
+STATUS_RESIST_DOWN,내성 감소,Resist Down
+STATUS_ROOT,속박,Root
+STATUS_SHIELD,보호막,Shield
+STATUS_SLOW,둔화,Slow
+STATUS_SPRINT,질주,Sprint
+STATUS_STEALTH,은신,Stealth
+STATUS_TWIN,쌍창,Twin Spears
+STAT_ATK,공격력,ATK
+STAT_CRIT,치명타 확률,Crit Rate
+STAT_CRIT_DMG,치명타 피해,Crit DMG
+STAT_DEF,방어력,DEF
+STAT_EFFECT,효과 적중,Effect Hit
+STAT_HP,HP,HP
+STORY_CHAPTER,메인 스토리 · 프롤로그,Main Story · Prologue
+STORY_CLEARED,클리어 완료,Cleared
+STORY_CONTROLS,"조작
+이동 WASD · 조준 마우스 · 대상 지정 좌클릭
+Q 생명의 대가 (짧게: 관통 / 길게: 은신)
+R 어둠속의 그림자 (오염도 100%)
+Space 회피 · F 단말 조사 · Esc 일시정지
+
+동료
+1 라 · 2 스테이지 · 3 페이즈 스킬
+Shift+1/2/3 궁극기 (오염도 100%)
+설정에서 동료 스킬 자동 사용을 켤 수 있습니다.","Controls
+Move WASD · Aim mouse · Target left click
+Q Price of Life (tap: pierce / hold: stealth)
+R Shadow in the Dark (100% Contamination)
+Space dodge · F investigate · Esc pause
+
+Allies
+1 Ra · 2 Stage · 3 Phase skills
+Shift+1/2/3 ultimates
+Auto ally skills can be enabled in Settings."
+STORY_FIRST_REWARD,첫 클리어 보상: 크리스탈 160,First clear reward: 160 Crystals
+STORY_PARTY,출전 파티,Party
+STORY_STAGE_DESC,다크웹 의뢰: 붕괴한 구역의 단말에서 큐브 반출 기록을 회수하라. BITE 병력이 구역을 점거하고 있다.,Dark web request: recover Cube export records from a terminal in the ruins. BITE forces hold the area.
+STORY_STAGE_TITLE,1-1  붕괴 구역 침투,1-1  Into the Ruins
+STORY_START,출격  (에너지 %d),Deploy  (%d Energy)

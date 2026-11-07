@@ -20,13 +20,15 @@ func _build() -> void:
 	add_child(bg)
 
 	# 키 아트 자리 (고해상도 일러스트가 들어올 곳, 임시)
-	var art := ColorRect.new()
-	art.name = "KeyArtPlaceholder"
-	art.color = UiStyle.BG_PANEL_RAISED
-	art.anchor_left = 820.0 / 1920.0
-	art.anchor_right = 1.0
-	art.anchor_bottom = 1.0
+	var art := UiStyle.texture(Progression.load_character(&"j").illust, Vector2(1100, 1080))
+	art.name = "KeyArt"
+	art.position = Vector2(820, 0)
 	add_child(art)
+	var fade := ColorRect.new()
+	fade.color = UiStyle.BG_BASE
+	fade.position = Vector2(780, 0)
+	fade.size = Vector2(80, 1080)
+	add_child(fade)
 
 	var left := VBoxContainer.new()
 	left.add_theme_constant_override("separation", 56)
@@ -45,6 +47,8 @@ func _build() -> void:
 	_menu.name = "Menu"
 	_menu.add_theme_constant_override("separation", 4)
 	left.add_child(_menu)
+	if SaveManager.has_save():
+		_add_item("MENU_CONTINUE", _on_continue)
 	_add_item("MENU_NEW_GAME", _on_new_game)
 	_add_item("MENU_SETTINGS", _on_settings)
 	_add_item("MENU_QUIT", GameManager.quit_game)
@@ -64,8 +68,31 @@ func _add_item(key: String, callback: Callable) -> void:
 	_menu.add_child(b)
 
 
+func _on_continue() -> void:
+	if SaveManager.load_game():
+		SceneManager.change_scene(SceneManager.LOBBY_SCENE)
+	else:
+		var d := AcceptDialog.new()
+		d.dialog_text = tr("SAVE_LOAD_FAILED")
+		add_child(d)
+		d.popup_centered()
+
+
 func _on_new_game() -> void:
-	SceneManager.change_scene(SceneManager.TEST_MAP_SCENE)
+	if not SaveManager.has_save():
+		start_new_game()
+		return
+	var d := ConfirmationDialog.new()
+	d.name = "NewGameConfirm"
+	d.dialog_text = tr("NEW_GAME_CONFIRM")
+	d.confirmed.connect(start_new_game)
+	add_child(d)
+	d.popup_centered()
+
+
+func start_new_game() -> void:
+	SaveManager.new_game()
+	SceneManager.change_scene(SceneManager.LOBBY_SCENE)
 
 
 func _on_settings() -> void:
@@ -78,4 +105,4 @@ func _on_settings() -> void:
 
 func _on_settings_closed() -> void:
 	_settings = null
-	_menu.get_child(1).grab_focus()
+	_menu.get_child(_menu.get_child_count() - 2).grab_focus()

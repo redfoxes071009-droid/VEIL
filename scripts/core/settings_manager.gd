@@ -18,6 +18,8 @@ const DEFAULT_RESOLUTION_INDEX := 1
 var master_volume: float = DEFAULT_MASTER_VOLUME
 var window_mode: int = DEFAULT_WINDOW_MODE
 var resolution_index: int = DEFAULT_RESOLUTION_INDEX
+## 동료(라·스테이지·페이즈) 스킬·궁극기 자동 사용. 기본은 수동(1/2/3, Shift+1/2/3).
+var ally_auto_skills: bool = false
 ## 테스트에서 다른 경로를 쓰기 위해 열어 둡니다.
 var path: String = DEFAULT_PATH
 
@@ -26,6 +28,7 @@ func reset_to_defaults() -> void:
 	master_volume = DEFAULT_MASTER_VOLUME
 	window_mode = DEFAULT_WINDOW_MODE
 	resolution_index = DEFAULT_RESOLUTION_INDEX
+	ally_auto_skills = false
 
 
 func set_master_volume(value: float) -> void:
@@ -40,6 +43,11 @@ func set_window_mode(mode: int) -> void:
 
 func set_resolution_index(index: int) -> void:
 	resolution_index = index if index >= 0 and index < RESOLUTIONS.size() else DEFAULT_RESOLUTION_INDEX
+	settings_changed.emit()
+
+
+func set_ally_auto_skills(on: bool) -> void:
+	ally_auto_skills = on
 	settings_changed.emit()
 
 
@@ -64,6 +72,8 @@ func load_settings() -> bool:
 	set_master_volume(float(vol) if typeof(vol) in [TYPE_FLOAT, TYPE_INT] else DEFAULT_MASTER_VOLUME)
 	set_window_mode(int(mode) if typeof(mode) in [TYPE_FLOAT, TYPE_INT] else DEFAULT_WINDOW_MODE)
 	set_resolution_index(int(res) if typeof(res) in [TYPE_FLOAT, TYPE_INT] else DEFAULT_RESOLUTION_INDEX)
+	var auto = cfg.get_value("gameplay", "ally_auto_skills", false)
+	ally_auto_skills = auto if typeof(auto) == TYPE_BOOL else false
 	return true
 
 
@@ -73,6 +83,7 @@ func save_settings() -> Error:
 	cfg.set_value("audio", "master_volume", master_volume)
 	cfg.set_value("display", "window_mode", window_mode)
 	cfg.set_value("display", "resolution_index", resolution_index)
+	cfg.set_value("gameplay", "ally_auto_skills", ally_auto_skills)
 	var err := cfg.save(path)
 	if err != OK:
 		push_error("설정 저장 실패 (%s): %s" % [path, error_string(err)])
