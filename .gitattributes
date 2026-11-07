@@ -1,0 +1,14 @@
+# 텍스트 파일 줄바꿈 통일 (Windows·macOS 공동 작업 대비)
+* text=auto eol=lf
+*.gd text eol=lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.godot text eol=lf
+*.csv text eol=lf
+
+# 바이너리
+*.ttf binary
+*.otf binary
+*.png binary
+*.wav binary
+*.ogg binary

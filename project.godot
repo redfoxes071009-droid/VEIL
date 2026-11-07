@@ -1,0 +1,43 @@
+; VEIL — Godot 4.7 프로젝트 설정
+; 직접 편집해도 되지만, 가능하면 Godot 에디터의 프로젝트 설정 창을 사용하세요.
+
+config_version=5
+
+[application]
+
+config/name="VEIL"
+config/description="VEIL (베일) — 2D SF 디스토피아 싱글플레이 RPG"
+config/version="0.1.0-phase2"
+run/main_scene="res://scenes/main/boot.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[autoload]
+
+EventBus="*res://scripts/core/event_bus.gd"
+InputConfig="*res://scripts/core/input_config.gd"
+SettingsManager="*res://scripts/core/settings_manager.gd"
+GameManager="*res://scripts/core/game_manager.gd"
+SceneManager="*res://scripts/core/scene_manager.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1600
+window/size/window_height_override=900
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom_font="res://assets/fonts/noto_sans_kr_regular.tres"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://data/localization/strings.ko.translation", "res://data/localization/strings.en.translation")
+locale/fallback="ko"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
