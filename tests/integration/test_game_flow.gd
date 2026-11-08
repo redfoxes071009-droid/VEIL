@@ -98,8 +98,30 @@ func test_full_flow() -> void:
 
 	# 스토리 → 전투
 	await _go(sm.STORY_SCENE)
+	var story := _current()
+	check_eq(story.node_buttons.size(), 7, "스토리 맵: PSD 노드 7개")
+	check_eq(story._energy.text, "%d / %d" % [save.get_currency("energy"), save.ENERGY_MAX], "스토리 맵: 에너지 표시")
+	check_eq(story._progress.text, "0", "스토리 맵: 진행 수 0")
+	# 잠긴 노드: 1-2 는 1-1 클리어 전에는 출격 불가
+	story.find_child("Node_1-2", true, false).pressed.emit()
+	await wait_frames(2)
+	check(story.popup.visible, "1-2 노드 → 정보 창")
+	var locked_btn: Button = story.popup.find_child("StartButton", true, false)
+	check(locked_btn.disabled, "1-2 잠김: 출격 버튼 비활성")
+	check_eq(story.find_child("Node_1-2", true, false).get_node("Badge").texture.resource_path.get_file(), "badge_lock.png", "잠김 배지")
+	story.popup.find_child("CloseButton", true, false).pressed.emit()
+	await wait_frames(2)
+	check(not story.popup.visible, "정보 창 닫기")
+	# 기록 노드: 전투 없음
+	story.find_child("Node_R1-1", true, false).pressed.emit()
+	await wait_frames(2)
+	check(story.popup.find_child("StartButton", true, false) == null, "기록 노드: 출격 버튼 없음")
+	story.popup.close()
+	await wait_frames(1)
+	story.find_child("Node_1-1", true, false).pressed.emit()
+	await wait_frames(2)
 	var energy0: int = save.get_currency("energy")
-	_current().find_child("StartButton", true, false).pressed.emit()
+	story.popup.find_child("StartButton", true, false).pressed.emit()
 	await sm.scene_change_finished
 	check_eq(_current().name, &"Battle", "출격 → 전투")
 	check_eq(save.get_currency("energy"), energy0 - 10, "에너지 10 소모")
@@ -125,11 +147,31 @@ func test_full_flow() -> void:
 	await wait_seconds(1.2)
 	check(save.get_currency("credit") > credit0, "승리 보상 크레딧")
 	check("1-1" in save.data.story.cleared, "스테이지 클리어 기록")
-	var to_lobby := _current().find_child("ToLobby", true, false)
-	check(to_lobby != null, "결과 화면")
-	to_lobby.pressed.emit()
+	var to_story := _current().find_child("ToStory", true, false)
+	check(to_story != null, "결과 화면")
+	to_story.pressed.emit()
 	await sm.scene_change_finished
-	check_eq(_current().name, &"Lobby", "결과 → 로비")
+	check_eq(_current().name, &"Story", "결과 → 스토리 맵")
+	check_eq(_current()._progress.text, "1", "진행 수 1/10")
+	check(StageDefs.is_unlocked(save, "1-2"), "1-1 클리어 → 1-2 해금")
+	check_eq(_current().find_child("Node_1-2", true, false).get_node("Badge").texture.resource_path.get_file(), "badge_rank.png", "해금 배지")
+	check(_current().find_child("Node_1-1", true, false).get_node("ClearTag").visible, "1-1 클리어 표시")
+	# 1-2 출격: 강화된 적 배치
+	_current().find_child("Node_1-2", true, false).pressed.emit()
+	await wait_frames(2)
+	var start12: Button = _current().popup.find_child("StartButton", true, false)
+	check(not start12.disabled, "1-2 출격 가능")
+	start12.pressed.emit()
+	await sm.scene_change_finished
+	check_eq(sm.battle_stage, "1-2", "1-2 전투 진입")
+	var w12: CombatWorld = _current().world
+	check_eq(w12.enemies().size(), 7, "1-2 적 7체")
+	var brute: Unit = null
+	for e in w12.enemies():
+		if e.enemy_kind == &"bite_brute":
+			brute = e
+	check(brute != null and is_equal_approx(brute.max_hp, EnemyDefs.get_def(&"bite_brute").hp * 1.35), "1-2 적 HP ×1.35")
+	await _go(sm.LOBBY_SCENE)
 
 	# 이어하기
 	await _go(sm.TITLE_SCENE)

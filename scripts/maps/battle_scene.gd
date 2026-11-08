@@ -27,7 +27,7 @@ func _ready() -> void:
 	world = CombatWorld.new()
 	world.name = "CombatWorld"
 	vp.add_child(world)
-	world.setup_stage(SaveManager.party_levels() if SaveManager.is_loaded() else {})
+	world.setup_stage(SaveManager.party_levels() if SaveManager.is_loaded() else {}, 0, StageDefs.get_def(SceneManager.battle_stage))
 	for u in world.party:
 		if u != world.leader:
 			u.auto_skills = SettingsManager.ally_auto_skills
@@ -84,9 +84,9 @@ func _show_result(won: bool, reward: Dictionary) -> void:
 	else:
 		col.add_child(UiStyle.label("RESULT_LOSE_HINT", 18, UiStyle.TEXT_MUTED))
 	var row := UiStyle.hbox(16)
-	var lobby := UiStyle.button("RESULT_TO_LOBBY", true, 20)
-	lobby.name = "ToLobby"
-	lobby.pressed.connect(func(): SceneManager.change_scene(SceneManager.LOBBY_SCENE))
+	var lobby := UiStyle.button("RESULT_TO_STORY", true, 20)
+	lobby.name = "ToStory"
+	lobby.pressed.connect(func(): SceneManager.change_scene(SceneManager.STORY_SCENE))
 	row.add_child(lobby)
 	var retry := UiStyle.button("RESULT_RETRY", false, 20)
 	retry.pressed.connect(func():

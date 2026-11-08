@@ -201,3 +201,33 @@ STORY_PARTY,출전 파티,Party
 STORY_STAGE_DESC,다크웹 의뢰: 붕괴한 구역의 단말에서 큐브 반출 기록을 회수하라. BITE 병력이 구역을 점거하고 있다.,Dark web request: recover Cube export records from a terminal in the ruins. BITE forces hold the area.
 STORY_STAGE_TITLE,1-1  붕괴 구역 침투,1-1  Into the Ruins
 STORY_START,출격  (에너지 %d),Deploy  (%d Energy)
+STAGE_TYPE_MAIN,메인,MAIN
+STAGE_TYPE_SUB,서브 의뢰,SIDE JOB
+STAGE_TYPE_RECORD,기록 재생,RECORD
+STAGE_CLEAR_TAG,클리어,CLEAR
+STAGE_REC_LEVEL,권장 레벨,Recommended Lv.
+STAGE_ENERGY,소모 에너지,Energy Cost
+STAGE_ENEMY,적 전투력,Enemy Strength
+STAGE_ENEMY_VALUE,기준 대비 %d%%,%d%% of base
+STAGE_REWARD,보상,Rewards
+STAGE_REWARD_VALUE,크레딧 %s · 첫 클리어 크리스탈 +%d,Credits %s · First clear Crystal +%d
+STAGE_LOCKED,잠김: 먼저 %s 을(를) 클리어하세요.,Locked: clear %s first.
+STAGE_CONTROLS_HINT,WASD 이동 · 좌클릭 대상 지정 · Q/R J 스킬 · Space 회피 · 1/2/3 동료 스킬 · Esc 일시정지,WASD move · LMB target · Q/R J skills · Space dodge · 1/2/3 ally skills · Esc pause
+STORY_PREV_CHAPTER,이전 장막,Previous Act
+STORY_NEXT_CHAPTER,다음 장막,Next Act
+STORY_CHAPTER_LOCKED,다음 장막은 준비 중입니다.,The next act is not available yet.
+RESULT_TO_STORY,스토리 맵으로,Story Map
+STAGE_R1_1_TITLE,R1-1  23:40 · 붕괴 구역,R1-1  23:40 · The Ruins
+STAGE_R1_1_DESC,"[기록 재생] 붕괴 구역, 야간. 다크웹에 큐브 반출 기록 회수 의뢰가 올라온다. 의뢰인은 익명, 보수는 선불. J의 팀은 의뢰를 수락한다.","[Record] The ruins, night. A dark web request appears: recover Cube export records. Anonymous client, paid upfront. J's team accepts."
+STAGE_1_1_TITLE,1-1  붕괴 구역 침투,1-1  Into the Ruins
+STAGE_1_1_DESC,다크웹 의뢰: 붕괴한 구역의 단말에서 큐브 반출 기록을 회수하라. BITE 병력이 구역을 점거하고 있다.,Dark web request: recover Cube export records from a terminal in the ruins. BITE forces hold the area.
+STAGE_1_2_TITLE,1-2  단말 너머,1-2  Beyond the Terminal
+STAGE_1_2_DESC,회수한 기록이 BITE의 수송 경로를 가리킨다. 경계가 강화된 구역을 돌파해 다음 단말에 접근하라.,The records point to a BITE transport route. Break through the reinforced zone and reach the next terminal.
+STAGE_R1_2_TITLE,R1-2  04:10 · BITE 수송 경로,R1-2  04:10 · BITE Transport Route
+STAGE_R1_2_DESC,"[기록 재생] 새벽, BITE 수송 경로. 기록 속 화물 목록에 '실험체'라는 단어가 반복된다.","[Record] Dawn, BITE transport route. The word 'subject' repeats through the cargo manifest."
+STAGE_S1_1_TITLE,S1-1  구역 정찰,S1-1  Zone Recon
+STAGE_S1_1_DESC,서브 의뢰: 붕괴 구역 외곽을 떠도는 변이체를 정리하라. 보수는 적지만 위험도 낮다.,"Side job: clear the mutants roaming the edge of the ruins. Low pay, low risk."
+STAGE_S1_2_TITLE,S1-2  수송 차단,S1-2  Intercept the Convoy
+STAGE_S1_2_DESC,서브 의뢰: BITE 수송 경로의 호위 병력을 무력화하라. 사수와 브루트가 함께 움직인다.,Side job: neutralize the escort on the BITE transport route. Gunners move with brutes.
+STAGE_S1_3_TITLE,S1-3  실험체 회수반,S1-3  Retrieval Squad
+STAGE_S1_3_DESC,서브 의뢰: 실험체를 회수하러 온 BITE 정예 회수반을 저지하라. 고난도.,Side job: stop the BITE elite squad sent to retrieve the subjects. High difficulty.

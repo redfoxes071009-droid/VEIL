@@ -44,6 +44,14 @@ func _run() -> void:
 	await _shot(dir, "06_dispatch")
 	await _go(SceneManager.STORY_SCENE)
 	await _shot(dir, "07_story")
+	var story := get_tree().current_scene
+	story.find_child("Node_1-1", true, false).pressed.emit()
+	await _shot(dir, "07b_story_popup_1-1")
+	story.popup.close()
+	story.find_child("Node_1-2", true, false).pressed.emit()
+	await _shot(dir, "07c_story_popup_locked")
+	story.popup.close()
+	SceneManager.battle_stage = "1-1"
 	await _go(SceneManager.BATTLE_SCENE)
 	var w: CombatWorld = get_tree().current_scene.world
 	for u in w.party:

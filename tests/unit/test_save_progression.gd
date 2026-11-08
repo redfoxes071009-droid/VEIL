@@ -153,3 +153,36 @@ func test_dispatch_and_mail() -> void:
 	OfflineContent.mail_claim(s, OfflineContent.MAIL[1])
 	check_eq(OfflineContent.unread_mail(s), 1, "받은 우편은 읽음")
 	_done(s)
+
+
+func test_story_stage_defs() -> void:
+	var s := _make()
+	check_eq(StageDefs.STAGES.size(), 7, "스토리 맵 노드 7개")
+	check(not StageDefs.is_battle("R1-1"), "R1-1 기록 노드는 전투 없음")
+	check(StageDefs.is_unlocked(s, "1-1"), "1-1 처음부터 열림")
+	check(not StageDefs.is_unlocked(s, "1-2"), "1-2 잠김")
+	check_eq(StageDefs.missing_requirements(s, "1-2"), ["1-1"], "1-2 조건 1-1")
+	check(not StageDefs.is_unlocked(s, "S1-3"), "S1-3 잠김")
+	var e0: int = s.get_currency("energy")
+	check(s.start_stage("S1-3"), "S1-3 에너지 소모")
+	check_eq(s.get_currency("energy"), e0 - 15, "S1-3 에너지 15")
+	var c0: int = s.get_currency("credit")
+	var r: Dictionary = s.clear_stage("S1-2")
+	check_eq(int(r.credit), int(12000 * 1.6), "S1-2 보상 ×1.6")
+	check_eq(s.get_currency("credit"), c0 + int(12000 * 1.6), "S1-2 크레딧 지급")
+	check(StageDefs.is_unlocked(s, "S1-3"), "S1-2 클리어 → S1-3 해금")
+	check_eq(StageDefs.cleared_count(s), 1, "진행 수 1")
+	_done(s)
+
+
+func test_stage_enemy_scaling() -> void:
+	var w := CombatWorld.new()
+	w.setup_stage({}, 7, StageDefs.get_def("S1-3"))
+	check_eq(w.enemies().size(), 7, "S1-3 적 7체")
+	var e: Unit = w.enemies()[0]
+	check(is_equal_approx(e.max_hp, EnemyDefs.get_def(e.enemy_kind).hp * 2.0), "S1-3 적 HP ×2")
+	w.free()
+	var d := CombatWorld.new()
+	d.setup_stage({}, 7)
+	check_eq(d.enemies().size(), 7, "기본(1-1) 적 7체 유지")
+	d.free()

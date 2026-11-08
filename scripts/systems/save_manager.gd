@@ -256,12 +256,13 @@ func break_through(id: StringName) -> String:
 # ---------- 스토리 ----------
 
 func start_stage(stage_id: String) -> bool:
-	return spend("energy", STAGE_ENERGY)
+	return spend("energy", int(StageDefs.get_def(stage_id).get("energy", STAGE_ENERGY)))
 
 
 func clear_stage(stage_id: String) -> Dictionary:
 	var first: bool = not (stage_id in data.story.cleared)
-	var reward := {"credit": 12000, "player_exp": 300, "bp_xp": 60, "crystal": 30}
+	var m: float = StageDefs.get_def(stage_id).get("reward_mult", 1.0)
+	var reward := {"credit": int(12000 * m), "player_exp": int(300 * m), "bp_xp": int(60 * m), "crystal": int(30 * m)}
 	if first:
 		data.story.cleared.append(stage_id)
 		reward.crystal += 160

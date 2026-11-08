@@ -41,7 +41,12 @@ func _physics_process(delta: float) -> void:
 
 
 ## 기본 스테이지(프롤로그 1-1) 구성. levels: {id: 레벨}
-func setup_stage(levels: Dictionary, seed_value: int = 0) -> void:
+## 기본 배치(1-1): 1구역 변이체 3 + 사수 1, 2구역(단말) 브루트 1 + 사수 2
+const DEFAULT_ENEMIES := [["bite_mutant", 270, 150], ["bite_mutant", 285, 200], ["bite_mutant", 300, 175],
+	["bite_gunner", 330, 120], ["bite_brute", 470, 110], ["bite_gunner", 520, 70], ["bite_gunner", 510, 200]]
+
+
+func setup_stage(levels: Dictionary, seed_value: int = 0, stage: Dictionary = {}) -> void:
 	rng.seed = seed_value if seed_value != 0 else randi()
 	obstacles = [Rect2(180, 40, 40, 90), Rect2(180, 230, 40, 90), Rect2(360, 140, 50, 30), Rect2(500, 250, 60, 30)]
 	var spawn := Vector2(60, 180)
@@ -57,14 +62,14 @@ func setup_stage(levels: Dictionary, seed_value: int = 0) -> void:
 		u.brain = UnitBrain.for_ally(maxi(0, i - 1))
 		_add_unit(u)
 		party.append(u)
-	# 1구역: 변이체 3 + 사수 1
-	for p in [Vector2(270, 150), Vector2(285, 200), Vector2(300, 175)]:
-		_spawn_enemy(&"bite_mutant", p)
-	_spawn_enemy(&"bite_gunner", Vector2(330, 120))
-	# 2구역(단말): 브루트 1 + 사수 2
-	_spawn_enemy(&"bite_brute", Vector2(470, 110))
-	_spawn_enemy(&"bite_gunner", Vector2(520, 70))
-	_spawn_enemy(&"bite_gunner", Vector2(510, 200))
+	var mult: float = stage.get("enemy_mult", 1.0)
+	var list: Array = stage.get("enemies", DEFAULT_ENEMIES)
+	for e in list:
+		var u := _spawn_enemy(StringName(e[0]), Vector2(e[1], e[2]))
+		if mult != 1.0:
+			u.max_hp = u.max_hp * mult
+			u.hp = u.max_hp
+			u.base_atk = u.base_atk * mult
 	objective_changed.emit("OBJ_TERMINAL")
 
 
