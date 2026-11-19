@@ -1,5 +1,15 @@
 # 작업 기록
 
+## 2026-11-19 — 게임 시작 메뉴 (Photoshop 「메인메뉴화면.psd」 → 실제 타이틀 화면)
+
+- PSD를 복제본으로 내보냄(원본 그대로): 메뉴만 뺀 배경 `assets/ui/title/title_bg.jpg`, 선택 상자 `menu_select.png`, 메뉴 위치·크기·색 `title_layout.json`
+- `scripts/ui/title_screen.gd` 교체: 배경 위에 메뉴 5개(계속하기 · 새 게임 · 설정 · 크레딧 · 게임 종료)를 PSD 기준선·크기(Noto Sans KR Bold 25px)·색(#AC7BFF / 선택 #AEEDFF) 그대로 배치
+  - 마우스 올림 / ↑↓ / Enter, 선택 상자가 고른 줄로 부드럽게 이동
+  - 저장이 없으면 「계속하기」 비활성(흐림), 처음 선택은 「새 게임」
+  - 「크레딧」 창 신설 (화면 왼쪽 환영 안내창과 같은 모양), Esc로 닫기
+- PSD 합성본과 실제 화면 대조: 전체 평균 오차 0.24/255, 메뉴 영역 3.55/255
+- 테스트 259개 통과
+
 ## 2026-11-08 — 스토리 맵 (Photoshop 디자인 → 실제 화면)
 
 - 사용자가 다듬은 `VEIL_스토리맵_UI.psd`를 원본은 그대로 두고 복제본에서 내보냄 → `assets/ui/story_map/` (배경, 고정 UI, 노드 7개, 배지 2종, `story_layout.json`)

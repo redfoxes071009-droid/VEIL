@@ -60,7 +60,21 @@ func test_full_flow() -> void:
 
 	await _go(sm.TITLE_SCENE)
 	check_eq(_current().name, &"TitleScreen", "타이틀 화면")
-	check(_find_button(_current(), "MENU_CONTINUE") == null, "저장이 없으면 이어하기 없음")
+	var title := _current()
+	check(title.has_node("Background") and title.get_node("Background").texture != null, "타이틀: PSD 배경")
+	check_eq(title.buttons.size(), 5, "타이틀: 메뉴 5개 (계속하기·새 게임·설정·크레딧·게임 종료)")
+	check(_find_button(title, "MENU_CONTINUE").disabled, "저장이 없으면 계속하기 비활성")
+	await wait_frames(2)
+	check_eq(title.selected_index(), 1, "처음 선택: 새 게임 (계속하기 비활성)")
+	title.get_node("Menu/Settings").grab_focus()
+	await tree.create_timer(0.3).timeout
+	check_eq(title.selected_index(), 2, "선택 상자가 설정 줄로 이동")
+	_find_button(title, "MENU_CREDITS").pressed.emit()
+	await wait_frames(2)
+	check(title.has_node("CreditsPanel"), "크레딧 창 열림")
+	title.find_child("CreditsClose", true, false).pressed.emit()
+	await wait_frames(2)
+	check(not title.has_node("CreditsPanel"), "크레딧 창 닫힘")
 	_find_button(_current(), "MENU_NEW_GAME").pressed.emit()
 	await sm.scene_change_finished
 	check_eq(_current().name, &"Lobby", "새 게임 → 로비")
@@ -175,6 +189,8 @@ func test_full_flow() -> void:
 
 	# 이어하기
 	await _go(sm.TITLE_SCENE)
-	check(_find_button(_current(), "MENU_CONTINUE") != null, "저장이 있으면 이어하기 표시")
+	check(not _find_button(_current(), "MENU_CONTINUE").disabled, "저장이 있으면 계속하기 활성")
+	await wait_frames(2)
+	check_eq(_current().selected_index(), 0, "저장이 있으면 계속하기가 처음 선택")
 	save.delete_save()
 	save.path = save.DEFAULT_PATH

@@ -108,7 +108,7 @@ MAIL_PROTO,프로토타입 테스트 보상,Prototype Test Reward
 MAIL_PROTO_BODY,테스트에 참여해 주셔서 감사합니다.,Thank you for testing.
 MAIL_WELCOME,VEIL에 오신 것을 환영합니다,Welcome to VEIL
 MAIL_WELCOME_BODY,모집에 쓸 수 있는 크리스탈을 보내드립니다.,Here are some crystals for recruitment.
-MENU_CONTINUE,이어하기,Continue
+MENU_CONTINUE,계속하기,Continue
 MENU_TO_LOBBY,로비로,Return to Lobby
 MSG_LEADER_DOWN,J가 쓰러졌습니다.,J has fallen.
 MSG_TERMINAL,[단말 기록] 큐브 반출 목록 #A-17 … 일부 손상. 'BITE 수송대가 3구역으로 이동' — 출구 잠금이 해제되었습니다.,[Terminal] Cube export list #A-17 … partially corrupted. 'BITE convoy moving to Sector 3' — Exit unlocked.
@@ -231,3 +231,19 @@ STAGE_S1_2_TITLE,S1-2  수송 차단,S1-2  Intercept the Convoy
 STAGE_S1_2_DESC,서브 의뢰: BITE 수송 경로의 호위 병력을 무력화하라. 사수와 브루트가 함께 움직인다.,Side job: neutralize the escort on the BITE transport route. Gunners move with brutes.
 STAGE_S1_3_TITLE,S1-3  실험체 회수반,S1-3  Retrieval Squad
 STAGE_S1_3_DESC,서브 의뢰: 실험체를 회수하러 온 BITE 정예 회수반을 저지하라. 고난도.,Side job: stop the BITE elite squad sent to retrieve the subjects. High difficulty.
+MENU_CREDITS,크레딧,Credits
+CREDITS_BODY,"《VEIL:UNDEFINED》 프로토타입 0.2
+
+기획 · 디자인 · 일러스트 — VEIL 팀
+개발 — VEIL 팀 · Claude
+엔진 — Godot Engine 4.7 (MIT 라이선스)
+글꼴 — Noto Sans KR · Rajdhani (SIL Open Font License 1.1)
+
+플레이해 주셔서 감사합니다.","《VEIL:UNDEFINED》 Prototype 0.2
+
+Design · Art — Team VEIL
+Development — Team VEIL · Claude
+Engine — Godot Engine 4.7 (MIT License)
+Fonts — Noto Sans KR · Rajdhani (SIL Open Font License 1.1)
+
+Thank you for playing."

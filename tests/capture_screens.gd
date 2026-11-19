@@ -29,6 +29,13 @@ func _run() -> void:
 	OfflineContent.mail_claim(SaveManager, OfflineContent.MAIL[0])
 	await _go(SceneManager.TITLE_SCENE)
 	await _shot(dir, "01_title")
+	var ts := get_tree().current_scene
+	ts.get_node("Menu/Settings").grab_focus()
+	await get_tree().create_timer(0.3).timeout
+	await _shot(dir, "01b_title_select_settings")
+	ts._on_credits()
+	await _shot(dir, "01c_title_credits")
+	ts._close_credits()
 	await _go(SceneManager.LOBBY_SCENE)
 	await _shot(dir, "02_lobby")
 	await _go(SceneManager.CHARACTER_SCENE)
