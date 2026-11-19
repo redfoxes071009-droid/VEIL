@@ -38,7 +38,7 @@ func _build() -> void:
 	var cur := CurrencyBar.new()
 	var top_right := UiStyle.hbox(12)
 	top_right.add_child(cur)
-	var settings := UiStyle.button("⚙", false, 22)
+	var settings := UiStyle.button("MENU_SETTINGS", false, 18)   # ⚙ 기호는 웹 글꼴에 없어 글자로 표시
 	settings.custom_minimum_size = Vector2(56, 48)
 	settings.tooltip_text = "MENU_SETTINGS"
 	settings.pressed.connect(_open_settings)
