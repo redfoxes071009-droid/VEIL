@@ -267,3 +267,6 @@ GACHA_HISTORY_BODY,"지금까지 모집: %d회
 ★5 guarantee: %d / %d"
 GACHA_RESULT,모집 결과,Results
 GACHA_RESULT_OK,확인,OK
+CHAR_COSTUME,의상,Costume
+CHAR_COSTUME_SOON,의상 기능은 아직 준비 중입니다.,Costumes are not available yet.
+CHAR_SWITCH,캐릭터 바꾸기,Switch Character
