@@ -252,3 +252,18 @@ LOBBY_CONSTRUCTION_SOON,건설 기능은 아직 준비 중입니다.,Constructio
 LOBBY_MENU,메뉴,Menu
 LOBBY_TO_TITLE,타이틀로,Back to Title
 LOBBY_STORY_NEXT,메인 %s,Main %s
+GACHA_DESC_1,"★5 캐릭터 등장 확률은 <%s%%>이며,","The ★5 character rate is <%s%%>,"
+GACHA_DESC_3,최대 <%d번>의 모집을 통해 ★5 캐릭터를,"and within <%d pulls> at most, a ★5 character"
+GACHA_BANNER_CLOSED,이 모집은 아직 열리지 않았습니다.,This recruitment is not open yet.
+GACHA_SOON,다음 모집을 준비 중입니다.,The next recruitment is being prepared.
+GACHA_RATES_TITLE,확률 정보,Rates
+GACHA_INFO_TITLE,모집 안내,About Recruitment
+GACHA_INFO_BODY,"크리스탈로 캐릭터 조각을 얻습니다. 같은 캐릭터 조각은 육성 · 돌파에 쓰입니다.
+VEIL은 오프라인 게임이라 실제 결제가 없습니다.","Spend crystals to get character shards, used for leveling and breakthrough.
+VEIL is offline; there are no real payments."
+GACHA_HISTORY_TITLE,모집 기록,History
+GACHA_HISTORY_BODY,"지금까지 모집: %d회
+★5 보장까지: %d / %d","Total pulls: %d
+★5 guarantee: %d / %d"
+GACHA_RESULT,모집 결과,Results
+GACHA_RESULT_OK,확인,OK

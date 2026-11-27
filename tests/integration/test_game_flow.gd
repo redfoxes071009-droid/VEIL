@@ -125,6 +125,16 @@ func test_full_flow() -> void:
 	await wait_frames(2)
 	check_eq(save.get_currency("crystal"), crystal0, "10회 모집 = 크리스탈 1600")
 	check_eq(int(save.data.gacha.total), 10, "모집 10회 기록")
+	var gs := _current()
+	check(gs.get_node("Background").texture != null, "모집: PSD 그림 배경")
+	check(gs.results != null and gs.last_results.size() == 10, "모집 결과 창: 10장")
+	check_eq(gs.fields.crystal.text, OfflineContent._num(save.get_currency("crystal")), "모집: 크리스탈 표시 = 저장값")
+	check(gs.fields.desc1.text.contains("%d%%" % roundi(Gacha.RATE_5 * 100)) and gs.fields.desc3.text.contains(str(Gacha.PITY)), "모집 설명 = 실제 확률 · 보장 횟수")
+	await _press("ui_cancel")
+	check(gs.results == null and _current() == gs, "Esc: 결과 창만 닫힘")
+	gs.hotspots.CharInfo.pressed.emit()
+	await sm.scene_change_finished
+	check_eq(Progression.ROSTER[_current().index], Gacha.PICKUP, "캐릭터 정보 → 스테이지 화면")
 
 	# 캐릭터 육성
 	await _go(sm.CHARACTER_SCENE)

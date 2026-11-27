@@ -5,6 +5,9 @@ extends ScreenBase
 const TABS := ["CHAR_TAB_INFO", "CHAR_TAB_GROW", "CHAR_TAB_SHARD", "CHAR_TAB_SKILL", "CHAR_TAB_WEAPON", "CHAR_TAB_PROFILE"]
 const STAT_KEYS := [["hp", "STAT_HP"], ["atk", "STAT_ATK"], ["def", "STAT_DEF"], ["crit_rate", "STAT_CRIT"], ["crit_dmg", "STAT_CRIT_DMG"], ["effect_hit", "STAT_EFFECT"]]
 
+## 다른 화면(모집의 「캐릭터 정보」 등)이 열 때 처음 보여 줄 캐릭터. 한 번 쓰면 비웁니다.
+static var open_id: StringName = &""
+
 var index := 0
 var tab := 0
 var _art: TextureRect
@@ -56,6 +59,9 @@ func _build_content(c: Control) -> void:
 		b.tooltip_text = d.display_name
 		b.pressed.connect(_select_char.bind(i))
 		_roster.add_child(b)
+	if open_id != &"" and Progression.ROSTER.has(open_id):
+		index = Progression.ROSTER.find(open_id)
+	open_id = &""
 	refresh()
 
 
