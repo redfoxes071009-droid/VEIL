@@ -247,3 +247,8 @@ Engine — Godot Engine 4.7 (MIT License)
 Fonts — Noto Sans KR · Rajdhani (SIL Open Font License 1.1)
 
 Thank you for playing."
+LOBBY_CONSTRUCTION,건설,Construction
+LOBBY_CONSTRUCTION_SOON,건설 기능은 아직 준비 중입니다.,Construction is not available yet.
+LOBBY_MENU,메뉴,Menu
+LOBBY_TO_TITLE,타이틀로,Back to Title
+LOBBY_STORY_NEXT,메인 %s,Main %s

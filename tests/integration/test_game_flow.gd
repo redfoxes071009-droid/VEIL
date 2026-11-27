@@ -80,6 +80,31 @@ func test_full_flow() -> void:
 	check_eq(_current().name, &"Lobby", "새 게임 → 로비")
 	check(save.is_loaded() and FileAccess.file_exists(TEST_SAVE), "새 저장 파일 생성")
 
+	# 로비: 사용자 최종 로비 그림 + 바뀌는 값 + 카드 영역
+	var lobby := _current()
+	check(lobby.get_node("Canvas/Background").texture != null, "로비: 그림 배경")
+	check_eq(lobby.hotspots.size(), 16, "로비: 눌리는 영역 16개")
+	check_eq(lobby.fields.level.text, "1", "로비: 레벨 = 저장값")
+	check_eq(lobby.fields.credit.text, "50,000", "로비: 크레딧 = 저장값")
+	check_eq(lobby.fields.energy.text, "%d / %d" % [save.get_currency("energy"), save.ENERGY_MAX], "로비: 에너지")
+	check_eq(lobby.fields.story_sub.text, "메인 1-1", "로비: 다음 메인 스테이지")
+	check(lobby.fields.name.text == "PLAYER" and lobby.fields.uid.text.begins_with("UID-"), "로비: 이름·UID")
+	var story_hs: LobbyHotspot = lobby.hotspots.Story
+	check(story_hs._has_point(Vector2(1850, 300) - story_hs.position), "스토리 카드 안쪽은 눌림")
+	check(not story_hs._has_point(Vector2(1815, 214) - story_hs.position), "원근: 기울어진 윗변 바깥은 안 눌림")
+	lobby.hotspots.Construction.pressed.emit()
+	await wait_frames(1)
+	check(lobby.has_node("InfoDialog"), "건설: 준비 중 안내")
+	lobby.get_node("InfoDialog").queue_free()
+	lobby.hotspots.Story.pressed.emit()
+	await sm.scene_change_finished
+	check_eq(_current().scene_file_path, sm.STORY_SCENE, "로비 스토리 카드 → 스토리 맵")
+	await _go(sm.LOBBY_SCENE)
+	_current()._on_menu(0)
+	await sm.scene_change_finished
+	check_eq(_current().scene_file_path, sm.BATTLEPASS_SCENE, "로비 메뉴 → 배틀패스")
+	await _go(sm.LOBBY_SCENE)
+
 	# 로비의 모든 하위 화면 열고 닫기
 	for p in [sm.CHARACTER_SCENE, sm.GACHA_SCENE, sm.SHOP_SCENE, sm.BATTLEPASS_SCENE, sm.DISPATCH_SCENE,
 			sm.MAIL_SCENE, sm.NOTICE_SCENE, sm.EVENT_SCENE, sm.STORY_SCENE]:
